@@ -11,7 +11,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
 
@@ -23,6 +22,9 @@ jobs:
 
       - name: Start SUT
         run: java -jar ./artifacts/app-order.jar &
+
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
 
       - name: Run Gradle tests
         run: ./gradlew test
