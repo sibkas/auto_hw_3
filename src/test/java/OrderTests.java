@@ -44,10 +44,9 @@ public class OrderTests {
         driver.findElement(By.cssSelector("[data-test-id='agreement'] .checkbox__box")).click();
         driver.findElement(By.cssSelector("button.button_view_extra")).click();
 
-        WebElement nameInputInvalid = driver.findElement(By.cssSelector("[data-test-id='name'].input_invalid"));
-        Assertions.assertTrue(nameInputInvalid.isDisplayed());
 
-        WebElement errorMessage = driver.findElement(By.cssSelector("[data-test-id='name'] .input__sub"));
+
+        WebElement errorMessage = driver.findElement(By.cssSelector("[data-test-id='name'].input_invalid .input__sub"));
         Assertions.assertTrue(errorMessage.isDisplayed());
         Assertions.assertEquals("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы.", errorMessage.getText().trim());
     }
@@ -59,10 +58,9 @@ public class OrderTests {
         driver.findElement(By.cssSelector("[data-test-id='agreement'] .checkbox__box")).click();
         driver.findElement(By.cssSelector("button.button_view_extra")).click();
 
-        WebElement phoneInputInvalid = driver.findElement(By.cssSelector("[data-test-id='phone'].input_invalid"));
-        Assertions.assertTrue(phoneInputInvalid.isDisplayed());
 
-        WebElement errorMessage = driver.findElement(By.cssSelector("[data-test-id='phone'] .input__sub"));
+
+        WebElement errorMessage = driver.findElement(By.cssSelector("[data-test-id='phone'].input_invalid .input__sub"));
         Assertions.assertTrue(errorMessage.isDisplayed());
         Assertions.assertEquals("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678.", errorMessage.getText().trim());
     }
@@ -82,10 +80,9 @@ public class OrderTests {
     void shouldShowValidationForEmptyForm() {
         driver.findElement(By.cssSelector("button.button_view_extra")).click();
 
-        WebElement nameInputInvalid = driver.findElement(By.cssSelector("[data-test-id='name'].input_invalid"));
-        Assertions.assertTrue(nameInputInvalid.isDisplayed());
 
-        WebElement errorMessage = driver.findElement(By.cssSelector("[data-test-id='name'] .input__sub"));
+
+        WebElement errorMessage = driver.findElement(By.cssSelector("[data-test-id='name'].input_invalid .input__sub"));
         Assertions.assertTrue(errorMessage.isDisplayed());
         Assertions.assertEquals("Поле обязательно для заполнения", errorMessage.getText().trim());
     }
